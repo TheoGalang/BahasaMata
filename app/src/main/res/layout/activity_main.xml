@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
         app:srcCompat="@drawable/logo" />
 
     <EditText
@@ -19,17 +20,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/imageView"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Username" />
+        android:hint="Username"
+        tools:ignore="UnknownId" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="310dp"
+        android:layout_below="@+id/username"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:inputType="numberPassword"
         android:hint="Password"/>
@@ -39,15 +43,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="500dp"
+        android:layout_below="@+id/password"
+        android:layout_marginTop="50dp"
         android:background="@null"
         app:srcCompat="@drawable/login_button"/>
 
     <TextView
+        android:id="@+id/tv_belumpunyaakun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="600dp"
+        android:layout_below="@+id/button_login"
+        android:layout_marginTop="50dp"
         android:text="Belum punya akun?"
         android:textColor="#000000"/>
 
@@ -56,7 +63,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="620dp"
+        android:layout_below="@+id/tv_belumpunyaakun"
+        android:layout_marginTop="10dp"
         android:text="Daftar Disini"
         android:textColor="#0048FF"
         android:clickable="true"/>
