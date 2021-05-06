@@ -5,95 +5,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".Daftar">
 
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_marginTop="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="101dp"
-        android:layout_marginTop="75dp"
-        android:text="Nama"
-        android:textSize="20dp"
-        android:layout_marginLeft="101dp"
-        />
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/logo" />
 
     <EditText
         android:id="@+id/daftar_nama"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="105dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:inputType="textPersonName"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="101dp"
-        android:layout_marginTop="165dp"
-        android:text="Username"
-        android:textSize="20dp"
-        android:layout_marginLeft="101dp"
+        android:hint="Nama"
         />
 
     <EditText
         android:id="@+id/daftar_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/daftar_nama"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="195dp"
+        android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="textPersonName"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="101dp"
-        android:layout_marginTop="255dp"
-        android:text="Password"
-        android:textSize="20dp"
-        android:layout_marginLeft="101dp"
+        android:hint="Username"
         />
 
     <EditText
         android:id="@+id/daftar_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/daftar_username"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="285dp"
+        android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="numberPassword"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="101dp"
-        android:layout_marginTop="345dp"
-        android:text="Konfirmasi Password"
-        android:textSize="20dp"
-        android:layout_marginLeft="101dp"
+        android:hint="Password"
         />
 
     <EditText
         android:id="@+id/daftar_password_konfirmasi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/daftar_password"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="375dp"
+        android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="numberPassword"
+        android:hint="Konfirmasi Password"
         />
 
     <TextView
+        android:id="@+id/textView_Daftar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/daftar_password_konfirmasi"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="101dp"
-        android:layout_marginTop="460dp"
+        android:layout_marginTop="50dp"
         android:text="Daftar Sebagai"
         android:textColor="#000000"
         android:textSize="20dp"
@@ -102,33 +81,42 @@
 
     <RadioButton
         android:id="@+id/radioButton_pasien"
-        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="500dp"
-        android:text="Pasien"
-        android:layout_marginLeft="150dp" />
+        android:layout_below="@+id/textView_Daftar"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="93dp"
+        android:layout_marginRight="95dp"
+        android:gravity="center"
+        android:text="Pasien" />
 
     <RadioButton
         android:id="@+id/radioButton_perawat"
-        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="525dp"
-        android:text="Perawat"
-        android:layout_marginLeft="150dp" />
+        android:layout_below="@+id/textView_Daftar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="93dp"
+        android:layout_marginLeft="93dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="Perawat" />
 
     <ImageButton
         android:id="@+id/button_daftar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/radioButton_perawat"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="600dp"
+        android:layout_marginTop="25dp"
         android:background="@null"
         app:srcCompat="@drawable/daftar_button"
         />
-
 
 </RelativeLayout>
