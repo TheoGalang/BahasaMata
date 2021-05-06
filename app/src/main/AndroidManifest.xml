@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Daftar"></activity>
+        <activity android:name=".Pasien"></activity>
+        <activity android:name=".Alert"></activity>
         <activity android:name=".MainActivity">
 
             <intent-filter>
