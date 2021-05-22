@@ -28,7 +28,7 @@ public class EyesTracker extends Tracker<Face> {
             if (className.equals("Pasien")) {
                 ((Pasien) context).updateMainView(Condition.USER_EYES_OPEN);
             } else if (className.equals("Alert")) {
-                ((Pasien) context).updateMainView(Condition.USER_EYES_OPEN);
+                ((Alert) context).updateMainView(Condition.USER_EYES_OPEN);
             }
 
         } else {
@@ -36,7 +36,7 @@ public class EyesTracker extends Tracker<Face> {
             if (className.equals("Pasien")) {
                 ((Pasien) context).updateMainView(Condition.USER_EYES_CLOSED);
             } else if (className.equals("Alert")) {
-                ((Pasien) context).updateMainView(Condition.USER_EYES_CLOSED);
+                ((Alert) context).updateMainView(Condition.USER_EYES_CLOSED);
             }
         }
     }
@@ -48,7 +48,7 @@ public class EyesTracker extends Tracker<Face> {
         if (className.equals("Pasien")) {
             ((Pasien) context).updateMainView(Condition.FACE_NOT_FOUND);
         } else if (className.equals("Alert")) {
-            ((Pasien) context).updateMainView(Condition.FACE_NOT_FOUND);
+            ((Alert) context).updateMainView(Condition.FACE_NOT_FOUND);
         }
     }
 
