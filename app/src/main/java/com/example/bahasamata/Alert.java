@@ -153,10 +153,13 @@ public class Alert extends AppCompatActivity {
                         @Override
                         public void run() {
                             emergencyAlarm_sound.stop();
+                            startActivity(new Intent(Alert.this, Pasien.class));
+
                         }
                     });
                 }
-
+                running = false;
+                seconds = 0;
                 break;
             case USER_EYES_CLOSED:
                 //setBackgroundOrange();
