@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.example.bahasamata.model.ModelLogin;
 import com.example.bahasamata.remote.APIUtils;
 import com.example.bahasamata.remote.UserService;
@@ -21,6 +22,8 @@ import com.example.bahasamata.remote.UserService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import static androidx.constraintlayout.widget.Constraints.TAG;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-        Log.d("asu","value : " + sharedpreferences.getString("type",null));
+       
         userService = APIUtils.getUserService();
 
         username = findViewById(R.id.username);
@@ -67,9 +70,6 @@ public class MainActivity extends AppCompatActivity {
                 String rUsername = username.getText().toString();
                 String rPassword = password.getText().toString();
                 Call<ModelLogin> call = userService.login(rUsername, rPassword, "0");
-//                Toast.makeText(MainActivity.this
-//                        , "asu"
-//                        , Toast.LENGTH_SHORT).show();
                 call.enqueue(new Callback<ModelLogin>() {
                     @Override
                     public void onResponse(Call<ModelLogin> call, Response<ModelLogin> response) {
