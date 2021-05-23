@@ -34,16 +34,40 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/username"
         android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
         android:ems="10"
         android:inputType="numberPassword"
         android:hint="Password"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton_pasien"
+            android:text="@string/rbPasien"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton_perawat"
+            android:text="@string/rbPerawat"
+            />
+
+    </RadioGroup>
 
     <ImageButton
         android:id="@+id/button_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/password"
+        android:layout_below="@+id/radioGroup"
         android:layout_marginTop="50dp"
         android:background="@null"
         app:srcCompat="@drawable/login_button"/>
@@ -59,7 +83,7 @@
         android:textColor="#000000"/>
 
     <TextView
-        android:id="@+id/text_button_daftar"
+        android:id="@+id/tbDaftar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -67,6 +91,7 @@
         android:layout_marginTop="10dp"
         android:text="Daftar Disini"
         android:textColor="#0048FF"
-        android:clickable="true"/>
+        android:clickable="true"
+        />
 
 </RelativeLayout>
