@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/cardview_light_background"
+    android:layout_margin="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="#27AE60"
+        android:text="Tambah Pasien"/>
+
+    <EditText
+        android:id="@+id/et_namapasien"
+        android:hint="Nama pasien"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"/>
+    <EditText
+        android:id="@+id/et_Idpasien"
+        android:hint="ID pasien"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_tambah_pasien"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tambah"
+            android:background="#27AE60"
+            android:layout_margin="20dp"
+            android:textColor="@color/cardview_light_background"/>
+        <Button
+            android:id="@+id/btn_cancel_tambahpasien"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cancel"
+            android:background="#27AE60"
+            android:layout_margin="20dp"
+            android:textColor="@color/cardview_light_background"/>
+
+    </LinearLayout>
+
+</LinearLayout>
