@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">BahasaMata</string>
     <color name="red">#FF0000</color>
+    <string name="rbPasien">Pasien</string>
+    <string name="rbPerawat">Perawat</string>
 
 </resources>
