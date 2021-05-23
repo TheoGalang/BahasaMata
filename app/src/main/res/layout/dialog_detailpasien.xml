@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/cardview_light_background"
+    android:layout_margin="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="#27AE60"
+        android:text="Detail Pasien"/>
+
+    <EditText
+        android:id="@+id/et_namapasien"
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"/>
+    <EditText
+        android:id="@+id/et_Idpasien"
+        android:hint="pasienrsjamil1"
+        android:inputType="none"
+        android:enabled="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_simpandetail_pasien"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Simpan"
+            android:background="#27AE60"
+            android:layout_margin="20dp"
+            android:textColor="@color/cardview_light_background"/>
+        <Button
+            android:id="@+id/btn_cancel_detailpasien"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Hapus"
+            android:background="#27AE60"
+            android:layout_margin="20dp"
+            android:textColor="@color/cardview_light_background"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>
