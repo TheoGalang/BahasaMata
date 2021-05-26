@@ -42,7 +42,9 @@
             android:layout_gravity="end"
             android:layout_marginRight="10dp"
             android:background="@null"
-            android:src="@drawable/ic_baseline_settings_24">
+            android:src="@drawable/ic_baseline_settings_24"
+            >
+
         </ImageButton>
 
         <ImageButton

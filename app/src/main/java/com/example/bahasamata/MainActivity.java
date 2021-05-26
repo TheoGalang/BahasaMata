@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                                 editor.putString("id", response.body().getData().get(i).getId());
                                 editor.putString("type", "0");
                                 editor.commit();
-                                Intent intent = new Intent(MainActivity.this, Pasien.class);
+                                Intent intent = new Intent(MainActivity.this, PasienlistActivity.class);
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(MainActivity.this
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         daftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, PasienlistActivity.class));
+                startActivity(new Intent(MainActivity.this, AlarmListActivity.class));
             }
         });
 
