@@ -60,16 +60,6 @@ public class PasienAdapter extends RecyclerView.Adapter <PasienAdapter.Pasienlis
         nomoracak = new Random();
 
 
-
-
-        vHolder.ib_delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                remove(1);
-            }
-        });
-
-
         return vHolder;
 
     }
@@ -77,6 +67,12 @@ public class PasienAdapter extends RecyclerView.Adapter <PasienAdapter.Pasienlis
     @Override
     public void onBindViewHolder(@NonNull PasienlistViewHolder holder, int position) {
         holder.namapasien.setText(listPasien.get(position).namapasien);
+        holder.ib_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                remove(position);
+            }
+        });
         holder.viewlistpasien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,11 +88,14 @@ public class PasienAdapter extends RecyclerView.Adapter <PasienAdapter.Pasienlis
                         dialogdetailpasien.hide();
                         notifyDataSetChanged();
                     }
+
+
                 });
             }
         });
     }
     void remove(int position) {
+        int temp = position;
        listPasien.remove(position);
         notifyItemChanged(position);
         notifyItemRangeRemoved(position, 1);
