@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         daftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, PasienlistActivity.class));
+                startActivity(new Intent(MainActivity.this, AlarmListActivity.class));
             }
         });
 
