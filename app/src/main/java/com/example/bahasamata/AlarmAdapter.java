@@ -36,6 +36,8 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
     public AlarmAdapter(List<Alarmlist> myDataset, Context aContext) {
         this.alarmlists= myDataset;
         this.aContext = aContext;
+
+        alarmManager = (AlarmManager)aContext.getSystemService(Context.ALARM_SERVICE);
         dialogdetailalarm = new Dialog(aContext);
         dialogdetailalarm.setContentView(R.layout.dialog_detailpasien);
         dialogdetailalarm.setCancelable(true);
@@ -82,7 +84,6 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
             ib_setTimer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    alarmManager = (AlarmManager)aContext.getSystemService(Context.ALARM_SERVICE);
                     Date date = new Date();
                     Calendar cal_alarm = Calendar.getInstance();
                     Calendar cal_now = Calendar.getInstance();
@@ -100,10 +101,29 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
                     pendingIntent = PendingIntent.getBroadcast(aContext,mHour+mMinutes,i,0);
                     alarmManager.set(AlarmManager.RTC_WAKEUP,cal_alarm.getTimeInMillis(),pendingIntent);
                     Toast.makeText(aContext,"Alarm berhasil di set",Toast.LENGTH_SHORT).show();
-                    waktualarm.setText(mHour + " : " + mMinutes);
+                    if(mMinutes < 10){
+                        String tempMinutes = "0" + (mMinutes);
+                        if(mHour < 10){
+                            waktualarm.setText("0" + mHour + " : " + tempMinutes);
+                        }
+                        else{
+                            waktualarm.setText(mHour + " : " + tempMinutes);
+                        }
+                    }
+
+                    else {
+
+
+                        if(mHour < 10){
+                            waktualarm.setText("0" + mHour + " : " + mMinutes);
+                        }
+                        else{
+                            waktualarm.setText(mHour + " : " + mMinutes);
+                        }
+                    }
+
                     timePicker.setVisibility(View.GONE);
                     waktualarm.setVisibility(View.VISIBLE);
-
 
                 }
             });
@@ -127,9 +147,13 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
     void remove(int position) {
         int temp = position;
         alarmlists.remove(position);
-        notifyItemChanged(position);
-        notifyItemRangeRemoved(position, 1);
-        alarmManager.cancel(pendingIntent);
+        notifyDataSetChanged();
+//        notifyItemRangeRemoved(position, 1);
+
+        if (pendingIntent != null){
+            alarmManager.cancel(pendingIntent);
+        }
+
     }
 
     @Override

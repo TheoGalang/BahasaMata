@@ -25,6 +25,7 @@
         <activity android:name=".Daftar" />
         <activity android:name=".PasienlistActivity" />
         <activity android:name=".AlarmListActivity" />
+        <activity android:name=".PengaturanActivity"/>
         <activity
             android:name=".Pasien"
             android:noHistory="true" />
