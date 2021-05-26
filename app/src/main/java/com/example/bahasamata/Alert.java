@@ -33,12 +33,14 @@ public class Alert extends AppCompatActivity {
     public int pilihan = 0;
     MediaPlayer emergencyAlarm_sound;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alert);
 
         emergencyAlarm_sound = MediaPlayer.create(this, R.raw.emergency_alarm);
+
 
         emergencyAlarm_sound.start();
         emergencyAlarm_sound.setLooping(true);
@@ -212,6 +214,7 @@ public class Alert extends AppCompatActivity {
                 // If running is true, increment the
                 // seconds variable.
                 if (running) {
+
                     seconds++;
                 }
 

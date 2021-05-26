@@ -30,12 +30,14 @@ public class Pasien extends AppCompatActivity {
     private int seconds = 0;
     private boolean running = false;
     public int pilihan = 0;
-
+    MediaPlayer knockSound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_pasien);
+
+        knockSound = MediaPlayer.create(this, R.raw.knocksound);
 
 
         emergencyCall_button = (ImageButton) findViewById(R.id.button_telfonDarurat);
@@ -151,18 +153,17 @@ public class Pasien extends AppCompatActivity {
         switch (condition) {
             case USER_EYES_OPEN:
                 //setBackgroundGreen();
+                 if (seconds == 2) {
+                     if (pilihan == 0) {
 
-                if (seconds >= 2) {
-                    if (pilihan == 0) {
-
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Toast.makeText(Pasien.this, "TELFON DARURAT!", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    } else {
-                        runOnUiThread(new Runnable() {
+                         runOnUiThread(new Runnable() {
+                             @Override
+                             public void run() {
+                                 Toast.makeText(Pasien.this, "TELFON DARURAT!", Toast.LENGTH_SHORT).show();
+                             }
+                         });
+                     } else {
+                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 Toast.makeText(Pasien.this, "ALERT!!", Toast.LENGTH_SHORT).show();
@@ -172,17 +173,18 @@ public class Pasien extends AppCompatActivity {
 
                     }
 
-                } else if (seconds >= 1) {
+                 } else if (seconds >= 1) {
 
-                    pilihan++;
-                    if (pilihan > 1) {
-                        pilihan = 0;
-                    }
-                    //Toast.makeText(Pasien.this, pilihan , Toast.LENGTH_SHORT).show();
+                     pilihan++;
+                     if (pilihan > 1) {
+                         pilihan = 0;
+                     }
+                     //Toast.makeText(Pasien.this, pilihan , Toast.LENGTH_SHORT).show();
 
-                }
+                 }
+                if (seconds > 2) {
 
-                if (pilihan == 0) {
+                } else if (pilihan == 0) {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -312,12 +314,18 @@ public class Pasien extends AppCompatActivity {
                 // If running is true, increment the
                 // seconds variable.
                 if (running) {
+                    knockSound.start();
                     seconds++;
+
                 }
 
                 // Post the code again
                 // with a delay of 1 second.
+
+
                 handler.postDelayed(this, 1000);
+
+
             }
         });
     }
