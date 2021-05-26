@@ -22,7 +22,9 @@
         android:text=""
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"/>
+        android:layout_margin="20dp"
+        android:hint="Nama Kontak Darurat"/>
+
     <EditText
         android:id="@+id/et_nomorKontak"
         android:inputType="number"
@@ -30,7 +32,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
-        android:layout_margin="20dp"/>
+        android:layout_margin="20dp"
+        android:hint="Nomor Kontak Darurat"/>
 
 
     <LinearLayout
@@ -47,16 +50,6 @@
             android:background="#27AE60"
             android:layout_margin="20dp"
             android:textColor="@color/cardview_light_background"/>
-        <Button
-            android:id="@+id/btn_cancel_detail_kontakDarurat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Hapus"
-            android:background="#27AE60"
-            android:layout_margin="20dp"
-            android:textColor="@color/cardview_light_background"/>
-
 
     </LinearLayout>
 

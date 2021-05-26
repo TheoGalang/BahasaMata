@@ -3,6 +3,7 @@ package com.example.bahasamata;
 import android.app.Dialog;
 import android.content.ClipData;
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -67,6 +68,15 @@ public class PasienAdapter extends RecyclerView.Adapter <PasienAdapter.Pasienlis
     @Override
     public void onBindViewHolder(@NonNull PasienlistViewHolder holder, int position) {
         holder.namapasien.setText(listPasien.get(position).namapasien);
+        holder.ib_settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, PengaturanActivity.class);
+                intent.putExtra("pasien", listPasien.get(position));
+                mContext.startActivity(intent);
+
+            }
+        });
         holder.ib_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,8 +107,8 @@ public class PasienAdapter extends RecyclerView.Adapter <PasienAdapter.Pasienlis
     void remove(int position) {
         int temp = position;
        listPasien.remove(position);
-        notifyItemChanged(position);
-        notifyItemRangeRemoved(position, 1);
+       notifyDataSetChanged();
+//        notifyItemRangeRemoved(position, 1);
     }
 
 

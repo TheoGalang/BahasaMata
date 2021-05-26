@@ -48,7 +48,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/qwe"
+                android:id="@+id/tv_nomorKontak"
                 android:text="081234567890"
 
                 />
@@ -63,7 +63,8 @@
                 android:layout_gravity="end"
                 android:layout_marginRight="10dp"
                 android:background="@null"
-                android:src="@drawable/ic_baseline_settings_24">
+                android:src="@drawable/ic_baseline_settings_24"
+                android:onClick="onClickSettingND">
             </ImageButton>
 
         </LinearLayout>
@@ -114,7 +115,8 @@
                 android:layout_gravity="end"
                 android:layout_marginRight="10dp"
                 android:background="@null"
-                android:src="@drawable/ic_baseline_settings_24">
+                android:src="@drawable/ic_baseline_settings_24"
+                android:onClick="onClickStringAlarm">
             </ImageButton>
 
         </LinearLayout>
@@ -136,7 +138,8 @@
             android:text="ID PASIEN"
             android:textStyle="bold"
             android:textSize="30sp"
-            android:textColor="#000000">
+            android:textColor="#000000"
+            android:layout_gravity="center">
 
         </TextView>
 
@@ -144,7 +147,7 @@
             android:id="@+id/tv_idPasien"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="asd"
+            android:text=""
             android:textSize="27sp"
             android:layout_gravity="center">
 
