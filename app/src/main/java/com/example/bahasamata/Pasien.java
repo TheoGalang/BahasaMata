@@ -30,12 +30,14 @@ public class Pasien extends AppCompatActivity {
     private int seconds = 0;
     private boolean running = false;
     public int pilihan = 0;
-
+    MediaPlayer knockSound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_pasien);
+
+        knockSound = MediaPlayer.create(this, R.raw.knocksound);
 
 
         emergencyCall_button = (ImageButton) findViewById(R.id.button_telfonDarurat);
@@ -312,12 +314,18 @@ public class Pasien extends AppCompatActivity {
                 // If running is true, increment the
                 // seconds variable.
                 if (running) {
+                    knockSound.start();
                     seconds++;
+
                 }
 
                 // Post the code again
                 // with a delay of 1 second.
+
+
                 handler.postDelayed(this, 1000);
+
+
             }
         });
     }
