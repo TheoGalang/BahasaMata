@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -27,10 +29,18 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
     private Context aContext;
     PendingIntent pendingIntent;
     AlarmManager alarmManager;
+    Dialog dialogdetailalarm;
+    EditText et_keteranganalarm;
+    Button btn_simpandetail_alarm;
 
     public AlarmAdapter(List<Alarmlist> myDataset, Context aContext) {
         this.alarmlists= myDataset;
         this.aContext = aContext;
+        dialogdetailalarm = new Dialog(aContext);
+        dialogdetailalarm.setContentView(R.layout.dialog_detailpasien);
+        dialogdetailalarm.setCancelable(true);
+        et_keteranganalarm = dialogdetailalarm.findViewById(R.id.et_keteranganalarm);
+        btn_simpandetail_alarm = dialogdetailalarm.findViewById(R.id.btn_simpandetail_alarm);
 
     }
 
@@ -38,6 +48,7 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
         TimePicker timePicker;
         TextView keterangan,waktualarm;
         int mHour, mMinutes;
+
 
 
 
@@ -52,7 +63,6 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
             viewlistalarm = view.findViewById(R.id.cv_listalarm);
             keterangan= view.findViewById(R.id.tv_ket_alarm);
             timePicker = view.findViewById(R.id.tp_setAlarm);
-            keterangan = view.findViewById(R.id.tv_ket_alarm);
 
             timePicker.setVisibility(View.GONE);
             waktualarm.setOnClickListener(new View.OnClickListener() {
@@ -132,24 +142,23 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
             }
         });
 
-//        holder.viewlistalarm.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                int temp = position;
-//                dialogdetailpasien.show();
-//                namapasiendialog.setText(listPasien.get(temp).namapasien);
-//                idpasiendialog.setText(String.valueOf(listPasien.get(temp).idpasien));
-//                btn_simpan.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//
-//                        listPasien.set(temp,new Pasienlist(namapasiendialog.getText().toString(), nomoracak.nextInt()));
-//                        dialogdetailpasien.hide();
-//                        notifyDataSetChanged();
-//                    }
-//                });
-//            }
-//        });
+        holder.viewlistalarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int temp = position;
+                dialogdetailalarm.show();
+                et_keteranganalarm.setText(alarmlists.get(temp).keterangan);
+                btn_simpandetail_alarm.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        alarmlists.set(temp,new Alarmlist(et_keteranganalarm.getText().toString(),10,11));
+                        dialogdetailalarm.hide();
+                        notifyDataSetChanged();
+                    }
+                });
+            }
+        });
     }
 
     @Override
