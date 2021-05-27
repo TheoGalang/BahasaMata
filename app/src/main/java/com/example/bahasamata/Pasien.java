@@ -1,7 +1,9 @@
 package com.example.bahasamata;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -31,6 +33,7 @@ public class Pasien extends AppCompatActivity {
     private boolean running = false;
     public int pilihan = 0;
     MediaPlayer knockSound;
+    public String nomorTelefon = "(+62)82285920109";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,8 @@ public class Pasien extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Pasien.this, "TELFON DARURAT!", Toast.LENGTH_SHORT).show();
+                startActivity(newPhoneCallIntent("08228592019"));
+
             }
         });
 
@@ -59,6 +64,10 @@ public class Pasien extends AppCompatActivity {
 
 
         runTimer();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 1);
+            Toast.makeText(this, "Permission not granted!\n Grant permission and restart app", Toast.LENGTH_SHORT).show();
+        }
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA}, 1);
             Toast.makeText(this, "Permission not granted!\n Grant permission and restart app", Toast.LENGTH_SHORT).show();
@@ -71,6 +80,7 @@ public class Pasien extends AppCompatActivity {
     private void init() {
         flag = true;
         initCameraSource();
+
     }
 
     private void initCameraSource() {
@@ -153,17 +163,35 @@ public class Pasien extends AppCompatActivity {
         switch (condition) {
             case USER_EYES_OPEN:
                 //setBackgroundGreen();
-                 if (seconds == 2) {
-                     if (pilihan == 0) {
+                if (seconds == 2) {
+                    if (pilihan == 0) {
 
-                         runOnUiThread(new Runnable() {
-                             @Override
-                             public void run() {
-                                 Toast.makeText(Pasien.this, "TELFON DARURAT!", Toast.LENGTH_SHORT).show();
-                             }
-                         });
-                     } else {
-                         runOnUiThread(new Runnable() {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(Pasien.this, "TELFON DARURAT!", Toast.LENGTH_SHORT).show();
+
+                                if (ActivityCompat.checkSelfPermission(Pasien.this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                                    // TODO: Consider calling
+                                    //    ActivityCompat#requestPermissions
+                                    // here to request the missing permissions, and then overriding
+                                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                    //                                          int[] grantResults)
+                                    // to handle the case where the user grants the permission. See the documentation
+                                    // for ActivityCompat#requestPermissions for more details.
+                                    return;
+                                }
+                                String s = "tel:" + nomorTelefon;
+                                Intent callIntent = new Intent(Intent.ACTION_CALL);
+
+                                callIntent.setData(Uri.parse(s));
+                                startActivity(callIntent);
+
+
+                            }
+                        });
+                    } else {
+                        runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 Toast.makeText(Pasien.this, "ALERT!!", Toast.LENGTH_SHORT).show();
@@ -328,6 +356,13 @@ public class Pasien extends AppCompatActivity {
 
             }
         });
+    }
+
+    public static Intent newPhoneCallIntent(String phoneNumber) {
+        Intent callintent = new Intent(Intent.ACTION_CALL);
+        callintent.setData(Uri.parse("tel: +62082285920109"));
+
+        return callintent;
     }
 
 }
